@@ -1,13 +1,21 @@
 import BotaoConclui from './assets/js/components/concluiTarefa.js'
 import BotaoDeleta from './assets/js/components/deletaTarefa.js'
  
-    const criarTarefa = (evento) => {
+const criarTarefa = (evento) => {
 
     evento.preventDefault()
 
     const lista = document.querySelector('[data-list]')
     const input = document.querySelector('[data-form-input]')
     const valor = input.value
+
+    const calendario = document.querySelector('[data-form-date]')
+    const initDate = document.querySelector('[data-form-initDate]')
+    const endDate = document.querySelector('[data-form-endDate]')
+
+    const data = calendario.value
+
+    console.log(data, initDate.value, endDate.value)
 
     const tarefa = document.createElement('li')
     tarefa.classList.add('task')
