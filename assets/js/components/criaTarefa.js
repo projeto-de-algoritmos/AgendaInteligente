@@ -18,11 +18,14 @@ export const handleNovoItem = (evento) => {
     const initDate = document.querySelector('[data-form-initDate]').value
     const endDate = document.querySelector('[data-form-endDate]').value
 
+    const concluida = false
+
     const dados = {
         valor,
         dataFormatada,
         initDate,
-        endDate
+        endDate,
+        concluida
     }
 
     const tarefasAtualizadas = [...tarefas, dados]
@@ -34,15 +37,19 @@ export const handleNovoItem = (evento) => {
     carregaTarefa()
 }
 
-export const Tarefa = ({ valor, dataFormatada, initDate, endDate}) => {
+export const Tarefa = ({ valor, dataFormatada, initDate, endDate, concluida}, id) => {
 
     const tarefa = document.createElement('li')
     tarefa.classList.add('task')
     const conteudo = `<p class="content">${dataFormatada} <br> inicio: ${initDate}h fim: ${endDate}h <br> ${valor}</p>`
 
+    if(concluida){
+        tarefa.classList.add('done')
+    }
+
     tarefa.innerHTML = conteudo
 
-    tarefa.appendChild(BotaoConclui())
+    tarefa.appendChild(BotaoConclui(carregaTarefa, id))
     tarefa.appendChild(BotaoDeleta())
 
     return tarefa;
