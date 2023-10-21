@@ -1,5 +1,6 @@
 import BotaoConclui from './concluiTarefa.js'
 import BotaoDeleta from './deletaTarefa.js'
+import { carregaTarefa } from './carregaTarefa.js'
 
 export const handleNovoItem = (evento) => {
     evento.preventDefault()
@@ -33,7 +34,8 @@ export const handleNovoItem = (evento) => {
     localStorage.setItem("tarefas", JSON.stringify(tarefasAtualizadas))
 
     input.value = " "
-
+   
+    carregaTarefa()
 }
 
 export const Tarefa = ({ valor, dataFormatada, initDate, endDate}) => {
