@@ -1,8 +1,7 @@
 import BotaoConclui from './assets/js/components/concluiTarefa.js'
 import BotaoDeleta from './assets/js/components/deletaTarefa.js'
  
-const criarTarefa = (evento) => {
-
+const handleNovoItem = (evento) => {
     evento.preventDefault()
 
     const lista = document.querySelector('[data-list]')
@@ -10,25 +9,40 @@ const criarTarefa = (evento) => {
     const valor = input.value
 
     const calendario = document.querySelector('[data-form-date]')
-    const initDate = document.querySelector('[data-form-initDate]')
-    const endDate = document.querySelector('[data-form-endDate]')
-
     const data = moment(calendario.value)
-    console.log(`${data.format('DD/MM/YYYY')}, ${initDate.value}, ${endDate.value}`)
+    const dataFormatada = data.format('DD/MM/YYYY')
+
+    const initDate = document.querySelector('[data-form-initDate]').value
+    const endDate = document.querySelector('[data-form-endDate]').value
+
+    const dados = {
+        valor,
+        dataFormatada,
+        initDate,
+        endDate
+    }
+
+    const criaTarefa = criarTarefa(dados);
+
+    lista.appendChild(criaTarefa)
+    input.value = " "
+
+}
+
+const criarTarefa = ({ valor, dataFormatada, initDate, endDate}) => {
 
     const tarefa = document.createElement('li')
     tarefa.classList.add('task')
-    const conteudo = `<p class="content">${valor}</p>`
+    const conteudo = `<p class="content">${dataFormatada} <br> inicio: ${initDate}h fim: ${endDate}h <br> ${valor}</p>`
 
     tarefa.innerHTML = conteudo
 
     tarefa.appendChild(BotaoConclui())
     tarefa.appendChild(BotaoDeleta())
-    lista.appendChild(tarefa)
-    input.value = " "
 
+    return tarefa;
 }
 
 const novaTarefa = document.querySelector('[data-form-button]')
 
-novaTarefa.addEventListener('click', criarTarefa)
+novaTarefa.addEventListener('click', handleNovoItem) 
