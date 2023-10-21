@@ -1,0 +1,9 @@
+.task {
+   background-color: var(--verdeescuro);
+   color: var(--brancofraco);
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 0.5rem;
+   padding: 1rem 3rem;
+ }
+ 

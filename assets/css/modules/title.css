@@ -1,0 +1,5 @@
+.titulo {
+   border-bottom: 1px solid var(--brancofraco);
+   font-size: 1.5rem;
+   color: var(--brancofraco);
+ }

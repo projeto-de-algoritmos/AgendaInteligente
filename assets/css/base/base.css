@@ -1,4 +1,14 @@
 :root{
    --azulescuro: #0B2027;
-   --bege: #f6f1d180;
+   --brancofraco: #F6F1D1;
+   --branco: #FFF;
+   --cinzaescuro: #4a4949;
+   --amareloclaro: #e3dda8;
+   --amarelo: #e3d344;
+   --verdeescuro: rgba(255, 255, 255, 0.1);
+   --preto: #000;
+}
+
+body{
+   font-family: 'Raleway', sans-serif;
 }

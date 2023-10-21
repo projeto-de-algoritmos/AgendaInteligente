@@ -1,0 +1,7 @@
+.l-agenda{
+   background-color: var(--azulescuro);
+   font-family: "Space Mono", monospace;
+   padding: 1rem;
+   min-width: 400px;
+   min-height: 300px;
+}
