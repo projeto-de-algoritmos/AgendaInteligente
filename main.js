@@ -1,7 +1,6 @@
 import BotaoConclui from './assets/js/components/concluiTarefa.js'
 import BotaoDeleta from './assets/js/components/deletaTarefa.js'
  
-
 let tarefas = [];
 
 const handleNovoItem = (evento) => {

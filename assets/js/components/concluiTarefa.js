@@ -2,7 +2,7 @@ const BotaoConclui = () => {
     const botaoConclui = document.createElement('button')  
     
     botaoConclui.classList.add('check-button')
-    botaoConclui.innerText = 'concluir'
+    botaoConclui.innerText = 'Concluir'
 
     botaoConclui.addEventListener('click', concluirTarefa)
 

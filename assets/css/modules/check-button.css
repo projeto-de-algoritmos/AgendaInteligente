@@ -1,0 +1,19 @@
+.check-button {
+   background-color: #F6F1D1;
+   border: none;
+   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+   outline: none;
+   border-radius: 2px;
+   cursor: pointer;
+   width: 62px;
+   height: 38px;
+   align-self: center;
+   font-weight: bold;
+   text-align: center;
+}
+
+.check-button:hover{
+  background-color: darkgreen;
+  transition: 0.5s;
+  color: var(--branco);
+}
