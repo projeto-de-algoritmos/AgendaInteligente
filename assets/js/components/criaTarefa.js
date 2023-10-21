@@ -40,17 +40,17 @@ export const handleNovoItem = (evento) => {
 export const Tarefa = ({ valor, dataFormatada, initDate, endDate, concluida}, id) => {
 
     const tarefa = document.createElement('li')
-    tarefa.classList.add('task')
     const conteudo = `<p class="content">${dataFormatada} <br> inicio: ${initDate}h fim: ${endDate}h <br> ${valor}</p>`
 
     if(concluida){
         tarefa.classList.add('done')
     }
 
+    tarefa.classList.add('task')
     tarefa.innerHTML = conteudo
 
     tarefa.appendChild(BotaoConclui(carregaTarefa, id))
-    tarefa.appendChild(BotaoDeleta())
+    tarefa.appendChild(BotaoDeleta(carregaTarefa, id))
 
     return tarefa;
 }
