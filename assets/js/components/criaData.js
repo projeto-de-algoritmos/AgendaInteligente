@@ -1,12 +1,15 @@
+import BotaoOrdena from './ordenaTarefa.js'
 import {Tarefa} from './criaTarefa.js'
 
 export const criaData = (data) => {
    const tarefas = JSON.parse(localStorage.getItem('tarefas'))||[]
    const dataMoment = moment(data, 'DD/MM/YYYY')
+
    const dataTopo = document.createElement('li')
    const conteudo = `<p class="content-data">${dataMoment.format('DD/MM/YYYY')}</p>`
    
    dataTopo.innerHTML = conteudo
+   dataTopo.appendChild(BotaoOrdena())
 
    tarefas.forEach(((tarefa, id) => { 
        const dia = moment(tarefa.dataFormatada, 'DD/MM/YYYY')

@@ -29,18 +29,26 @@ export const handleNovoItem = (evento) => {
     }
 
     const tarefasAtualizadas = [...tarefas, dados]
-    
+
     localStorage.setItem("tarefas", JSON.stringify(tarefasAtualizadas))
 
-    input.value = " "
-   
+    input.value = ""
+
     carregaTarefa()
 }
 
 export const Tarefa = ({ valor, dataFormatada, initDate, endDate, concluida}, id) => {
 
     const tarefa = document.createElement('li')
-    const conteudo = `<p class="content">${dataFormatada} <br> inicio: ${initDate}h fim: ${endDate}h <br> ${valor}</p>`
+    const conteudo = 
+    `
+    <div class="task-info">
+        <p class="content descricaoTarefa">${valor}</p>          
+        <span class="horarioInicio">Início: ${initDate}</span>
+        <span class="horarioFim">Fim: ${endDate}</span>
+    </div> 
+    `
+    
 
     if(concluida){
         tarefa.classList.add('done')
