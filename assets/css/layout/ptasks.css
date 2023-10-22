@@ -1,0 +1,53 @@
+.l-pTasks{
+    padding: 0;
+    margin: 10rem auto;
+    position: relative;
+    width: 26rem;
+    color: white;
+}
+
+.l-pTasks::backdrop {
+    backdrop-filter: blur(5px);
+}
+
+.task-ordered{
+    padding: 0.5rem;
+    margin: 0;
+    list-style-type: none;
+    display: block;
+    background-color: var(--azulescuro);
+}
+
+.task-ordenada-info{
+    width: 90%;
+    padding: 1rem;
+    margin: 0.5rem auto;
+    background-color: rgba(2, 245, 124, 0.648);
+    border: 1px solid white;
+    border-radius: 0.5rem;
+    color: white;
+}
+
+
+
+.task-modal-title{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.dialog-btn{
+    margin: 0;
+    font-weight: bolder;
+    font-size: 1rem;
+    border:1px solid transparent;
+    border-radius: 0.2rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    background-color: bisque;
+}
+.dialog-btn:hover{
+    background-color: chartreuse;
+}
+
