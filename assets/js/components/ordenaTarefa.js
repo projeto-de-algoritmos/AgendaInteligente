@@ -13,13 +13,13 @@ const ordenarTarefa = (evento) => {
 
    const listaTarefas = botaoPressionado.parentElement
 
+   const diaAgenda = listaTarefas.querySelector((".content-data")).textContent;
    const tarefas = listaTarefas.querySelectorAll(("li"));
-   const modal = document.querySelector(".l-pTasks")
    const tarefaObjetos = new Array;
    const tarefasPossiveis = new Array;
 
    for(let i = 0; i < tarefas.length; i++){
-      let descricaoTarefa = tarefas[i].querySelector((".descricaoTarefa")).textContent;
+      let descricaoTarefa = tarefas[i].querySelector((".content")).textContent;
       let inicioTarefa = tarefas[i].querySelector((".horarioInicio")).textContent;
       let fimTarefa = tarefas[i].querySelector((".horarioFim")).textContent;
 
@@ -48,43 +48,61 @@ const ordenarTarefa = (evento) => {
       }
    }
 
-   const tarefa = document.createElement('ul')
-   tarefa.classList.add('task-ordered')
-   tarefa.innerHTML = `
-   <div class="task-modal-title">
-      <h3>Maior numero de tarefas possiveis</h3>
-      <button class="dialog-btn">X</button>
-   </div>
-      <p>Tarefas</p>`
-  
-   for(let i = 0; i< tarefasPossiveis.length;i++){
-      var task = 
-      `<div class="task-ordenada-info">
-        <p class="content descricaoTarefa">${tarefasPossiveis[i].descricao}</p>          
-        <span class="horarioInicio">Início: ${converterHora(tarefasPossiveis[i].horarioInicio) }</span>
-        <span class="horarioFim">Fim: ${converterHora(tarefasPossiveis[i].horarioFinal)}</span>
-    </div> 
-    `
-    tarefa.innerHTML += task;
-   }
-   modal.appendChild(tarefa)
-   modal.showModal();
+   dialogTarefasPossiveis(tarefasPossiveis, diaAgenda);
+}
 
-   const modalBtn = document.querySelector(".dialog-btn")
+const dialogTarefasPossiveis = (tarefas, dia) => {
+   const dialog = document.querySelector(".l-dialog")
+
+   const janelaDialog = document.createElement('div')
+
+   janelaDialog.classList.add('dialog-content')
+   janelaDialog.innerHTML =
+   `
+   <div class="dialog-title">
+      <h3>Otimização de Tarefas - ${dia}</h3>
+   </div>
+   `
+     
+   for(let i = 0; i< tarefas.length;i++){
+      let task = 
+      `<div class="dialog-task">
+        <p class="content text-center">${tarefas[i].descricao}</p> 
+        <div class="dialog-times">
+         <span class="horarioInicio">Início: ${converterHora(tarefas[i].horarioInicio) }</span>
+         <span class="horarioFim">Fim: ${converterHora(tarefas[i].horarioFinal)}</span>
+        </div>         
+      </div> 
+    `
+    janelaDialog.innerHTML += task;
+
+   }
+
+   const botaoSair = document.createElement('button');
+
+   botaoSair.innerText = 'FECHAR';
+   botaoSair.classList.add('dialog-button')
+
+   janelaDialog.appendChild(botaoSair);
+
+   dialog.appendChild(janelaDialog)
+
+   dialog.showModal();
+
+   const modalBtn = document.querySelector(".dialog-button")
 
    modalBtn.addEventListener('click', () =>{
-      modal.close()
-      modal.innerHTML = ""
+      dialog.close()
+      dialog.innerHTML = ""
    })
 
-   return botaoPressionado
 }
 
 function converterHora(str) {
    var horas = str.slice(0, 2);
    var minutos = str.slice(2);
 
-   return horas + ":" + minutos + "h";
+   return horas + "h:" + minutos + "m";
 }
 
 export default BotaoOrdena

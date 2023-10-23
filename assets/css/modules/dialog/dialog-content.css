@@ -1,0 +1,9 @@
+.dialog-content{
+   padding: 0.5rem;
+   margin: 0;
+   list-style-type: none;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: var(--azulescuro);
+}

@@ -1,13 +1,10 @@
 .content {
    margin: 0;
+   word-wrap: break-word;
 }
 
 .content-data{
   font-weight: bold;
   color: var(--brancofraco);
   margin-left: 10px;
-}
-
-.descricaoTarefa{
-  word-wrap: break-word
 }

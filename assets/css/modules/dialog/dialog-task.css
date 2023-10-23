@@ -1,0 +1,11 @@
+.dialog-task{
+   width: 80%;
+   padding: 1rem;
+   margin: 1rem auto;
+   background-color: var(--verde);
+   border: 1px solid var(--branco);
+   border-radius: 0.5rem;
+   color: var(--branco);
+   display: flex;
+   flex-direction: column;
+}

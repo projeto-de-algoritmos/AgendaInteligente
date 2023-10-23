@@ -1,0 +1,11 @@
+.l-dialog{
+   padding: 0;
+   margin: 10rem auto;
+   position: relative;
+   width: 500px;
+   color: var(--branco);
+}
+
+.l-dialog::backdrop {
+   backdrop-filter: blur(5px);
+}

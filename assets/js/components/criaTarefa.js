@@ -43,7 +43,7 @@ export const Tarefa = ({ valor, dataFormatada, initDate, endDate, concluida}, id
     const conteudo = 
     `
     <div class="task-info">
-        <p class="content descricaoTarefa">${valor}</p>          
+        <p class="content">${valor}</p>          
         <span class="horarioInicio">Início: ${initDate}</span>
         <span class="horarioFim">Fim: ${endDate}</span>
     </div> 

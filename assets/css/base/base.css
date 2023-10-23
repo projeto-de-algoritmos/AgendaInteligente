@@ -1,11 +1,13 @@
 :root{
    --azulescuro: #0B2027;
+   --azul:  #005ce6;
    --brancofraco: #F6F1D1;
    --branco: #FFF;
    --cinzaescuro: #4a4949;
    --amareloclaro: #e3dda8;
    --amarelo: #e3d344;
-   --verdeescuro: rgba(255, 255, 255, 0.1);
+   --verdeescuro: #FFFFFF1A;
+   --verde: #02F57CA5;
    --preto: #000;
 }
 
