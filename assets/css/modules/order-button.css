@@ -1,0 +1,13 @@
+.order-button{
+    background-color: var(--laranja);
+    border: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 140px;
+    height: 38px;
+    align-self: center;
+    font-weight: bold;
+    color: var(--branco);
+}

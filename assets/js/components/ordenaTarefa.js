@@ -3,6 +3,7 @@ import { dialogTarefasPossiveis } from "./criaDialog.js"
 const BotaoOrdena = () => { 
    const botaoOrdena = document.createElement('button')
 
+   botaoOrdena.classList.add('order-button')
    botaoOrdena.innerText = 'Ordenar Tarefas'
 
    botaoOrdena.addEventListener('click', ordenarTarefa, false)
