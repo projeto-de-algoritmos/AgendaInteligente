@@ -1,6 +1,7 @@
 .content {
    margin: 0;
    word-wrap: break-word;
+   max-width: 350px;
 }
 
 .content-data{
