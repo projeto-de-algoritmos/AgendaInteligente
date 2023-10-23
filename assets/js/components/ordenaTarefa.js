@@ -4,7 +4,7 @@ const BotaoOrdena = () => {
    const botaoOrdena = document.createElement('button')
 
    botaoOrdena.classList.add('order-button')
-   botaoOrdena.innerText = 'Ordenar Tarefas'
+   botaoOrdena.innerText = 'Otimizar Tarefas'
 
    botaoOrdena.addEventListener('click', ordenarTarefa, false)
 
@@ -14,9 +14,12 @@ const BotaoOrdena = () => {
 const ordenarTarefa = (evento) => { 
    const botaoPressionado = evento.target
 
-   const listaTarefas = botaoPressionado.parentElement
+   const cabecalhoBotao = botaoPressionado.parentElement
+
+   const listaTarefas = cabecalhoBotao.parentElement
 
    const diaAgenda = listaTarefas.querySelector((".content-data")).textContent;
+   
    const tarefas = listaTarefas.querySelectorAll(("li"));
    const tarefaObjetos = new Array;
    const tarefasPossiveis = new Array;

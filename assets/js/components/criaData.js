@@ -6,10 +6,15 @@ export const criaData = (data) => {
    const dataMoment = moment(data, 'DD/MM/YYYY')
 
    const dataTopo = document.createElement('li')
-   const conteudo = `<p class="content-data">${dataMoment.format('DD/MM/YYYY')}</p>`
+
+   const cabecalho = document.createElement('div')
+   cabecalho.classList.add('header-content')
+
+   cabecalho.innerHTML =  `<p class="content-data">${dataMoment.format('DD/MM/YYYY')}</p>`
    
-   dataTopo.innerHTML = conteudo
-   dataTopo.appendChild(BotaoOrdena())
+   cabecalho.appendChild(BotaoOrdena())
+
+   dataTopo.appendChild(cabecalho)
 
    tarefas.forEach(((tarefa, id) => { 
        const dia = moment(tarefa.dataFormatada, 'DD/MM/YYYY')
