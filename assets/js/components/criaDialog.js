@@ -1,32 +1,54 @@
-export const dialogTarefasPossiveis = (tarefas, dia) => {
+export const dialogTarefasPossiveis = (tarefas, dia, tipo) => {
     const dialog = document.querySelector(".l-dialog")
  
     const janelaDialog = document.createElement('div')
  
     janelaDialog.classList.add('dialog-content')
-    janelaDialog.innerHTML =
-    `
-    <div class="dialog-title">
-       <h3>Otimização de Tarefas - ${dia}</h3>
-    </div>
-    `
-      
-    for(let i = 0; i< tarefas.length;i++){
-       let task = 
-       `<div class="dialog-task">
-         <p class="content text-center">${tarefas[i].descricao}</p> 
-         <div class="dialog-times">
-          <span class="horarioInicio">Início: ${converterHora(tarefas[i].horarioInicio) }</span>
-          <span class="horarioFim">Fim: ${converterHora(tarefas[i].horarioFinal)}</span>
-         </div>         
-       </div> 
-     `
-     janelaDialog.innerHTML += task;
- 
+    if(tipo == 1){
+      janelaDialog.innerHTML =
+      `
+      <div class="dialog-title">
+         <h3>Otimização de Tarefas - ${dia}</h3>
+      </div>
+      `
+
+      for(let i = 0; i< tarefas.length;i++){
+         let task = 
+         `<div class="dialog-task">
+           <p class="content text-center">${tarefas[i].descricao}</p> 
+           <div class="dialog-times">
+            <span class="horarioInicio">Início: ${converterHora(tarefas[i].horarioInicio) }</span>
+            <span class="horarioFim">Fim: ${converterHora(tarefas[i].horarioFinal)}</span>
+           </div>         
+         </div> 
+       `
+       janelaDialog.innerHTML += task;
+      }
+    }else{
+      janelaDialog.innerHTML =
+      `
+      <div class="dialog-title">
+         <h3>Atraso mínimo de Tarefas - ${dia}</h3>
+         <h3>Total de atraso - ${tarefas[0]}</h3>
+      </div>
+      `
+
+      for(let i = 1; i< tarefas.length;i++){
+         let task = 
+         `<div class="dialog-task">
+           <p class="content text-center">${tarefas[i].descricao}</p> 
+           <div class="dialog-times">
+            <span class="horarioInicio">Início: ${tarefas[i].horarioInicio}</span>
+            <span class="horarioFim">Fim: ${tarefas[i].horarioFinal}</span>
+           </div>         
+         </div> 
+       `
+       janelaDialog.innerHTML += task;
+      }
     }
- 
+
     const botaoSair = document.createElement('button');
- 
+
     botaoSair.innerText = 'FECHAR';
     botaoSair.classList.add('dialog-button')
  
@@ -41,8 +63,8 @@ export const dialogTarefasPossiveis = (tarefas, dia) => {
     modalBtn.addEventListener('click', () =>{
        dialog.close()
        dialog.innerHTML = ""
-    })
- 
+      })
+   
  }
  
  function converterHora(str) {

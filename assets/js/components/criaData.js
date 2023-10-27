@@ -12,8 +12,8 @@ export const criaData = (data) => {
 
    cabecalho.innerHTML =  `<p class="content-data">${dataMoment.format('DD/MM/YYYY')}</p>`
    
-   cabecalho.appendChild(BotaoOrdena())
-
+   cabecalho.appendChild(BotaoOrdena(1))
+   cabecalho.appendChild(BotaoOrdena(2))
    dataTopo.appendChild(cabecalho)
 
    tarefas.forEach(((tarefa, id) => { 
