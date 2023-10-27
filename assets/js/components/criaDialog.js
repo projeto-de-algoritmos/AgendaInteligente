@@ -4,6 +4,7 @@ export const dialogTarefasPossiveis = (tarefas, dia, tipo) => {
     const janelaDialog = document.createElement('div')
  
     janelaDialog.classList.add('dialog-content')
+
     if(tipo == 1){
       janelaDialog.innerHTML =
       `
@@ -24,7 +25,8 @@ export const dialogTarefasPossiveis = (tarefas, dia, tipo) => {
        `
        janelaDialog.innerHTML += task;
       }
-    }else{
+    }
+    else{
       janelaDialog.innerHTML =
       `
       <div class="dialog-title">
@@ -58,9 +60,9 @@ export const dialogTarefasPossiveis = (tarefas, dia, tipo) => {
  
     dialog.showModal();
  
-    const modalBtn = document.querySelector(".dialog-button")
+    const botaoSairDialogo = document.querySelector(".dialog-button")
  
-    modalBtn.addEventListener('click', () =>{
+    botaoSairDialogo.addEventListener('click', () =>{
        dialog.close()
        dialog.innerHTML = ""
       })

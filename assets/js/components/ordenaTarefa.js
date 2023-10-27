@@ -11,20 +11,20 @@ const BotaoOrdena = (tipo) => {
    
       return botaoOrdena
    }
-   botaoOrdena.classList.add('order-button')
-   botaoOrdena.innerText = 'Minimizar atraso'
+   else{
+      botaoOrdena.classList.add('order-button')
+      botaoOrdena.innerText = 'Minimizar Atraso'
+   
+      botaoOrdena.addEventListener('click', minimizaAtraso, false)
+   
+      return botaoOrdena
+   }
 
-   botaoOrdena.addEventListener('click', minimizaAtraso, false)
-
-   return botaoOrdena
-  
 }
 
 const ordenarTarefa = (evento) => { 
    const botaoPressionado = evento.target
-
    const cabecalhoBotao = botaoPressionado.parentElement
-
    const listaTarefas = cabecalhoBotao.parentElement
 
    const diaAgenda = listaTarefas.querySelector((".content-data")).textContent;
@@ -37,6 +37,7 @@ const ordenarTarefa = (evento) => {
    for(let i = 0; i < tarefas.length; i++){
 
       if(!tarefas[i].classList.contains("done")){
+
          let descricaoTarefa = tarefas[i].querySelector((".content")).textContent;
          let inicioTarefa = tarefas[i].querySelector((".horarioInicio")).textContent;
          let fimTarefa = tarefas[i].querySelector((".horarioFim")).textContent;
@@ -73,9 +74,7 @@ const ordenarTarefa = (evento) => {
 
 export const minimizaAtraso = (evento) => {
    const botaoPressionado = evento.target
-
    const cabecalhoBotao = botaoPressionado.parentElement
-
    const listaTarefas = cabecalhoBotao.parentElement
 
    const diaAgenda = listaTarefas.querySelector((".content-data")).textContent;
@@ -111,23 +110,34 @@ export const minimizaAtraso = (evento) => {
    });
 
    let time = 0;
+
    tarefasMinAtraso.push(0)
+
    for(let i = 0; i < tarefaObjetos.length; i++){
       let duracao = tarefaObjetos[i].horarioFinal - tarefaObjetos[i].horarioInicio
+
       let deadline = tarefaObjetos[i].horarioFinal
+
       tarefaObjetos[i].horarioInicio = time
       tarefaObjetos[i].horarioFinal = time + duracao;
+
       time += duracao;
       
       if(time > deadline && tarefasMinAtraso[0] < (time - deadline)){
          tarefasMinAtraso[0] = time - deadline
+
          tarefaObjetos[i].atraso = tarefasMinAtraso[0]
       }
+
       tarefasMinAtraso.push(tarefaObjetos[i]);
    }
+
    tarefasMinAtraso[0] = converterMinutosPara24Horas(tarefasMinAtraso[0])
+
    converterHorarioPara24Horas(tarefasMinAtraso)
+
    console.log(tarefasMinAtraso)
+   
    dialogTarefasPossiveis(tarefasMinAtraso, diaAgenda, 2);
 }
 
