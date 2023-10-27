@@ -18,23 +18,33 @@ export const handleNovoItem = (evento) => {
     const initDate = document.querySelector('[data-form-initDate]').value
     const endDate = document.querySelector('[data-form-endDate]').value
 
+    if(!isNaN(calendario.value)){
+        console.log('Não é válido')
+    }
+
     const concluida = false
 
     const dados = {
         valor,
         dataFormatada,
+        valorData: calendario.value,
         initDate,
         endDate,
         concluida
     }
 
-    const tarefasAtualizadas = [...tarefas, dados]
-
-    localStorage.setItem("tarefas", JSON.stringify(tarefasAtualizadas))
-
-    input.value = ""
-
-    carregaTarefa()
+    if(verificaEntrada(dados)){
+        const tarefasAtualizadas = [...tarefas, dados]
+    
+        localStorage.setItem("tarefas", JSON.stringify(tarefasAtualizadas))
+    
+        input.value = ""
+    
+        carregaTarefa()
+    }
+    else{
+        alert('Entradas Inválidas!');
+    }
 }
 
 export const Tarefa = ({ valor, dataFormatada, initDate, endDate, concluida}, id) => {
@@ -66,4 +76,18 @@ export const Tarefa = ({ valor, dataFormatada, initDate, endDate, concluida}, id
     tarefa.appendChild(botoesTarefa)
 
     return tarefa;
+}
+
+const verificaEntrada = ({ valor, valorData, initDate, endDate}) => {
+
+    if (valor.trim().length === 0 || 
+        valorData.trim().length === 0 || 
+        initDate.trim().length === 0 ||  
+        endDate.trim().length === 0
+       )
+       {
+        return false;
+       }
+
+    return true;
 }
