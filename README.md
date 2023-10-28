@@ -15,9 +15,9 @@ O objetivo do projeto é criar uma agenda que permite que o usuário registre as
 
 O usuário pode, então, otimizar a execução das tarefas, através de duas formas:
 
-- Otimizar Tarefas: Ao clicar nesse botão, as tarefas são organizadas usando o algoritmo **Interval Scheduling**, mostrando o máximo de tarefas que ele pode fazer no dia.
+- **Otimizar Tarefas**: Ao clicar nesse botão, as tarefas são organizadas usando o algoritmo **Interval Scheduling**, mostrando o máximo de tarefas que ele pode fazer no dia.
 
-- Minimizar Atraso: Ao clicar nesse botão, as tarefas são organizadas usando o algoritmo **Minimizing Lateness**, mostrando a melhor forma de fazer as tarefas (com o mínimo de atraso com relação aos prazos de entrega delas possível).
+- **Minimizar Atraso**: Ao clicar nesse botão, as tarefas são organizadas usando o algoritmo **Minimizing Lateness**, mostrando a melhor forma de fazer as tarefas (com o mínimo de atraso com relação aos prazos de entrega delas possível).
 
 Uma tarefa marcada como concluída não irá ser considerada em nenhuma das otimizações.
 
